@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Video Player</title>
+    <title>D</title>
     <style>
         body, html {
             margin: 0;
@@ -13,6 +13,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
             background-color: #f0f0f0;
         }
         video {
@@ -24,6 +25,19 @@
             border-radius: 8px;
             background-color: #000;
         }
+        .share-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .share-button:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
@@ -32,6 +46,29 @@
         <source src="video.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
+
+    <button class="share-button" onclick="shareLink()">Share this link</button>
+
+    <script>
+        function shareLink() {
+            const shareData = {
+                title: 'Download ostora app!',
+                text: 'Download ostora app!',
+                url: 'https://ostora.tv/ios'
+            }
+
+            if (navigator.share) {
+                navigator.share(shareData).then(() => {
+                    console.log('Link shared successfully');
+                }).catch((error) => {
+                    console.error('Error sharing link:', error);
+                });
+            } else {
+                // Fallback for browsers that don't support the Web Share API
+                alert('Web Share API is not supported in your browser. You can copy and share this link: ' + shareData.url);
+            }
+        }
+    </script>
 
 </body>
 </html>
