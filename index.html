@@ -28,7 +28,6 @@
         .share-button {
             margin-top: 20px;
             padding: 10px 20px;
-            margin: 10px 0px 10px 0px;
             font-size: 16px;
             color: #fff;
             background-color: #007bff;
@@ -43,19 +42,18 @@
 </head>
 <body>
     
-    <button class="share-button" onclick="shareLink()">Share App</button>
-
     <video controls autoplay>
         <source src="video.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
 
+    <button class="share-button" onclick="shareLink()">Share App</button>
 
     <script>
         function shareLink() {
             const shareData = {
                 title: 'Download ostora app!',
-                text: 'Download ostora app!',
+                text: "Download ostora app \n",
                 url: 'https://ostora.tv/ios'
             }
 
